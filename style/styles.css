@@ -1,0 +1,91 @@
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  height: 100vh;
+  background-color: rgb(12, 12, 12);
+  color: aliceblue;
+  font-size: 16px;
+}
+
+#content {
+  max-width: 1200px;
+  height: 100%;
+  margin: auto;
+  padding: 10px;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  height: 10%;
+  color: aliceblue;
+  background-color: cadetblue;
+}
+header h1 {
+  align-self: center;
+}
+
+.mainMenu {
+  display: flex;
+  align-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  height: -moz-fit-content;
+  height: fit-content; /* Full-height: remove this if you want "auto" height */
+  width: -moz-fit-content;
+  width: fit-content; /* Set the width of the sidebar */
+  float: left; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  overflow: hidden; /* Disable horizontal scroll */
+}
+.mainMenu .menuButton {
+  cursor: pointer;
+  position: relative;
+  max-width: 13em;
+  min-height: 13em;
+  color: aliceblue;
+  background-color: darkslategrey;
+  transition: all 300ms ease-in-out;
+}
+.mainMenu .menuButton .buttonText {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+}
+.mainMenu .menuButton:hover {
+  color: #fff;
+  background-color: cadetblue;
+  box-shadow: 0 0 0 1px #fff inset;
+}
+
+.innerContent {
+  margin-left: 13em;
+  padding: 3em;
+  height: 100%;
+  background-color: rgb(40, 43, 38);
+}
+.innerContent #addShow {
+  visibility: visible;
+}
+.innerContent #searchShow {
+  visibility: visible;
+}
+.innerContent #listShow {
+  visibility: visible;
+}
+
+footer {
+  position: sticky;
+  bottom: 0px;
+  bottom: 0;
+  height: 8%;
+  background-color: cadetblue;
+}
+
+Img {
+  width: 13em;
+  height: 11em;
+  padding-top: 2em;
+  opacity: 0.3;
+  mix-blend-mode: multiply;
+}/*# sourceMappingURL=styles.css.map */
