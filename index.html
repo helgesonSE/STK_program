@@ -30,9 +30,15 @@
             </div>
         </aside>
         <section class="innerContent">
+            <section id="splash" class="innerWindow">
+                <h3>Välkommen</h3>
+                <p>Till Statliga Televisionskanalens nya verktyg för att hantera program. 
+                    Använd knapparna till vänster för att lägga till nya program till arkivet,
+                    söka i arkivet, eller se arkivet i sin helhet.</p>
+            </section>
             <section id="addShow" class="innerWindow">
                 <form>
-                    <table class="addShowTable">
+                    <table id="addShowTable">
                         <tr>
                             <th>
                                 <label for="showName" name="labelForTextBox">Programtitel:</label>
@@ -47,12 +53,12 @@
                             </th>
                             <th>
                                 <select id="showGenre" name="genre">
-                                    <option value="children">Barn</option>
-                                    <option value="documentary">Dokumentär</option>
-                                    <option value="drama">Drama</option>
-                                    <option value="comedy">Humor</option>
-                                    <option value="reality">Reality</option>
-                                    <option value="other">Övrigt</option>
+                                    <option value="Barn">Barn</option>
+                                    <option value="Dokumentär">Dokumentär</option>
+                                    <option value="Drama">Drama</option>
+                                    <option value="Humor">Humor</option>
+                                    <option value="Reality">Reality</option>
+                                    <option value="Övrigt">Övrigt</option>
                                 </select>
                             </th>
                         </tr>
@@ -62,9 +68,10 @@
                             </th>
                             <th>
                                 <select id="showRating" name="åldersgräns">
-                                    <option value="children">Barntillåten</option>
-                                    <option value="documentary">Barn med vuxens sällskap</option>
-                                    <option value="drama">Barnförbjuden</option>
+                                    <option value="Barntillåten">Barntillåten</option>
+                                    <option value="7 år+">7 år</option>
+                                    <option value="11 år+">11 år+</option>
+                                    <option value="15 år+">15 år+</option>
                                 </select>
                             </th>
                         </tr>
@@ -75,11 +82,11 @@
             </section>
             <section id="searchShow" class="innerWindow">
                 <label for="searchName" name="labelForTextBox">Sök titel:</label>
-                <input type="text" name="showName" placeholder="Ange titel...">
-                <input class="button" type="submit" value="Sök">
+                <input type="text" id="searchShowInput" name="showName" placeholder="Ange titel...">
+                <input class="button" id="searchShowButton" type="submit" value="Sök">
             </section>
             <section id="listShow" class="innerWindow">
-                <div id="template">
+                <div id="template" class="searchResult">
                     <table>
                         <tr>
                             <h2>TITEL</h2>
@@ -99,9 +106,8 @@
                 </div>
             </section>
         </section>
-       
-        <footer></footer>
     </div>
+    <footer><h4>STK.2023</h4></footer>    
     <script src="/scripts/script.js"></script>
 </body>
 </html>

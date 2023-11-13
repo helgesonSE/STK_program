@@ -1,44 +1,40 @@
-body {
+html {
+  height: 100%;
+}
+html body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  height: 100vh;
+  max-width: 100%;
+  height: 100%;
   background-color: rgb(12, 12, 12);
   color: aliceblue;
   font-size: 16px;
 }
-
-#content {
-  max-width: 1200px;
-  height: 100%;
-  margin: auto;
-  padding: 10px;
+html body #content {
+  width: 100%;
+  background-color: rgb(40, 43, 38);
+  overflow: hidden;
 }
-
-header {
+html body #content header {
   display: flex;
   justify-content: center;
   height: 10%;
   color: aliceblue;
   background-color: cadetblue;
 }
-header h1 {
-  align-self: center;
-}
-
-.mainMenu {
+html body #content .mainMenu {
   display: flex;
   align-content: flex-start;
   align-items: center;
   flex-direction: column;
-  height: -moz-fit-content;
-  height: fit-content; /* Full-height: remove this if you want "auto" height */
   width: -moz-fit-content;
   width: fit-content; /* Set the width of the sidebar */
   float: left; /* Stay on top */
   top: 0; /* Stay at the top */
   left: 0;
   overflow: hidden; /* Disable horizontal scroll */
+  background-color: darkslategrey;
 }
-.mainMenu .menuButton {
+html body #content .mainMenu .menuButton {
   cursor: pointer;
   position: relative;
   max-width: 13em;
@@ -47,45 +43,52 @@ header h1 {
   background-color: darkslategrey;
   transition: all 300ms ease-in-out;
 }
-.mainMenu .menuButton .buttonText {
+html body #content .mainMenu .menuButton .buttonText {
   position: absolute;
   text-align: center;
   width: 100%;
 }
-.mainMenu .menuButton:hover {
+html body #content .mainMenu .menuButton:hover {
   color: #fff;
   background-color: cadetblue;
   box-shadow: 0 0 0 1px #fff inset;
 }
-
-.innerContent {
-  margin-left: 13em;
-  padding: 3em;
-  height: 100%;
-  background-color: rgb(40, 43, 38);
-}
-.innerContent #addShow {
-  visibility: visible;
-}
-.innerContent #searchShow {
-  visibility: visible;
-}
-.innerContent #listShow {
-  visibility: visible;
-}
-
-footer {
-  position: sticky;
-  bottom: 0px;
-  bottom: 0;
-  height: 8%;
-  background-color: cadetblue;
-}
-
-Img {
+html body #content .mainMenu .menuButton Img {
   width: 13em;
   height: 11em;
   padding-top: 2em;
   opacity: 0.3;
   mix-blend-mode: multiply;
+}
+html body #content .innerContent {
+  min-height: 100%;
+  margin-left: 13em;
+  padding: 3em;
+  text-align: left;
+}
+html body #content .innerContent select, html body #content .innerContent input, html body #content .innerContent #showDescription {
+  font-size: inherit;
+}
+html body #content .innerContent #showName {
+  width: 30em;
+}
+html body #content .innerContent #showDescription {
+  width: 40em;
+  height: 10em;
+}
+html body #content .innerContent .searchResult {
+  box-shadow: 0 0 0 1px #fff inset;
+  padding: 1em;
+}
+html body #content .innerContent #listShow {
+  background-color: aqua;
+  min-height: 10px;
+}
+
+footer {
+  display: flex;
+  height: 3em;
+  background-color: cadetblue;
+  justify-content: end;
+  padding-right: 1em;
 }/*# sourceMappingURL=styles.css.map */

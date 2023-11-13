@@ -1,20 +1,23 @@
 let showArray = getData();
 let searchArray = [];
 const submitShowButton = document.getElementById("submitShow")
-submitShowButton.addEventListener("click", addShow);
+const innerWindows = document.getElementsByClassName("innerWindow");
+const mainButtons = document.getElementsByClassName("menuButton");
+const searchShowInput = document.getElementById("searchShowInput");
 const addShowInput = {
     title: document.getElementById("showName"),
     genre: document.getElementById("showGenre"),
     rating: document.getElementById("showRating"),
     description: document.getElementById("showDescription")
 };
-const innerWindows = document.getElementsByClassName("innerWindow");
-const mainButtons = document.getElementsByClassName("menuButton");
+submitShowButton.addEventListener("click", addShow);
+searchShowInput.addEventListener("keydown", searchShow);
 for (const button of mainButtons) {
     button.addEventListener("click", function(){
         setView(button.id.slice(0, -6));
     })
 }
+//setView("splash");
 
 function setView (button) {
     for (const window of innerWindows) {
@@ -22,6 +25,8 @@ function setView (button) {
     }
     document.getElementById(button).style.display = "block";
 }
+
+
 
 function addShow (){
     showArray.push({
@@ -47,33 +52,29 @@ function getData () {
     return savedShows ? savedShows : [];
 }
 
+function searchShow() {
+    document.getElementById("listShow").style.display = "block";
+    for (const entry of showArray) {
+        let res = entry.title.search(searchShowInput.value);
+        if (res < 0) {
+            continue;
+        }
+        searchArray.push(entry);
+    }
+    console.log(searchArray);
+    updateSearch();
+}
 
-
-
-
-
-
-showArray.push({title:"Låtsatstitel", genre:"Humor", rating:"Barnförbjuden", 
-    description:"Handlar om folk som äter frukost"});
-showArray.push({title:"Låtsatstitel2", genre:"Drama", rating:"Barntillåten", 
-    description:"Handlar om folk som äter middag"});
-
-var templateDiv = document.getElementById("template");
-
-var newShowElement = templateDiv.cloneNode(true);
-
-newShowElement.querySelector("h2").textContent = showArray[0].title;
-newShowElement.querySelector("genre").textContent = showArray[0].genre;
-newShowElement.querySelector("rating").textContent = showArray[0].rating;
-newShowElement.querySelector("p").textContent = showArray[0].description;
-
-document.getElementById("listShow").appendChild(newShowElement);
-
-var newShowElement = templateDiv.cloneNode(true);
-
-newShowElement.querySelector("h2").textContent = showArray[1].title;
-newShowElement.querySelector("genre").textContent = showArray[1].genre;
-newShowElement.querySelector("rating").textContent = showArray[1].rating;
-newShowElement.querySelector("p").textContent = showArray[1].description;
-
-document.getElementById("listShow").appendChild(newShowElement);
+function updateSearch () {
+    var templateDiv = document.getElementById("template");
+    console.log(searchArray);
+    // De här måste rensas bort mellan varje sökning. För "tungt"? 
+    for (const entry of searchArray) {
+        var newShowElement = templateDiv.cloneNode(true);
+        newShowElement.querySelector("h2").textContent = entry.title;
+        newShowElement.querySelector("genre").textContent = entry.genre;
+        newShowElement.querySelector("rating").textContent = entry.rating;
+        newShowElement.querySelector("p").textContent = entry.description;
+        document.getElementById("listShow").appendChild(newShowElement);
+}
+}
