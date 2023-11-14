@@ -1,68 +1,77 @@
-$bgcolor: rgb(12, 12, 12);
+$backdropcolor: rgb(12, 12, 12);
+$bgcolor: rgb(40, 43, 38);
+$toplevelcolor: cadetblue;
+$unlitcolor: darkslategrey;
 $textcolor: aliceblue;
 $fontsize: 16px;
-$borderstyle: 2px solid rgb(99, 99, 99);
 
-html{
+html {
     height: 100%;
 
     body {
         font-family: Verdana, Geneva, Tahoma, sans-serif;
-        max-width: 100%;
         height: 100%;
-        background-color: $bgcolor;
+        max-width: 85rem;
+        background-color: $backdropcolor;
         color: $textcolor;
         font-size: $fontsize;
 
-            #content{
-            width: 100%;
-            background-color: rgb(40, 43, 38);
+        #content {
+            background-color: $bgcolor;
             overflow: hidden;
 
             header {
                 display: flex;
-                justify-content: center;
-                height: 10%;
-                color: aliceblue;
-                background-color: cadetblue;
+                padding-left: 7em;
+                background-color: $toplevelcolor;
+
+                #homeButton {
+                    cursor: pointer;
+                    text-decoration: solid underline 0px;
+                    transition: all 300ms ease-in-out;
+                    &:hover {
+                        color: #fff;
+                        text-decoration: solid underline 5px;
+                    }
+                }
             }
 
             .mainMenu {
+                width: fit-content; /* Set the width of the sidebar */
                 display: flex;
                 align-content: flex-start;
                 align-items: center;
                 flex-direction: column;
-                width: fit-content; /* Set the width of the sidebar */
                 float: left; /* Stay on top */
                 top: 0; /* Stay at the top */
                 left: 0;
+                background-color: $unlitcolor;
                 overflow: hidden; /* Disable horizontal scroll */
-                background-color: darkslategrey;
-            
+
                 .menuButton {
                     cursor: pointer;
+                    max-height: fit-content;
+                    max-width: fit-content;
                     position: relative;
-                    max-width: 13em;
-                    min-height: 13em;
-                    color: aliceblue;
-                    background-color: darkslategrey;
-                
-                    .buttonText{
+                    background-color: $unlitcolor;
+                    box-shadow: 0 0 0 1px $toplevelcolor inset;
+
+                    .buttonText {
                         position: absolute;
                         text-align: center;
                         width: 100%;
-                    }
-                
-                    transition: all 300ms ease-in-out;
-                    &:hover{
-                        color: #fff;
-                        background-color: cadetblue;
-                        box-shadow: 0 0 0 1px #fff inset;
+                        text-decoration: solid underline 1px;
                     }
 
-                    Img{
-                        width: 13em;
+                    transition: all 300ms ease-in-out;
+                    &:hover {
+                        color: #fff;
+                        background-color: $toplevelcolor;
+                    }
+
+                    Img {
                         height: 11em;
+                        width: 13em;
                         padding-top: 2em;
                         opacity: 0.3;
                         mix-blend-mode: multiply;
@@ -72,40 +81,99 @@ html{
 
             .innerContent {
                 min-height: 100%;
+                max-width: 50em;
                 margin-left: 13em;
-                padding: 3em;
-
+                padding: 1em;
                 text-align: left;
-                
-                select, input, #showDescription{
-                    font-size: inherit;
-                }
-                #showName {
-                    width: 30em;
-                }
-                #showDescription {
-                    width: 40em;
-                    height: 10em;
+
+                #addShow {
+                    form {
+                        th,
+                        td {
+                            padding-bottom: 1em;
+                        }
+                        select,
+                        input,
+                        #showDescription {
+                            font-size: $fontsize;
+                        }
+                        #showDescription {
+                            width: 100%;
+                            height: 10em;
+                            box-sizing: border-box;
+                        }
+                    }
                 }
 
-                .searchResult{
-                    box-shadow: 0 0 0 1px #fff inset;
+                #searchShow {
+                    div {
+                        padding-bottom: 2em;
+                        input {
+                            font-size: $fontsize;
+                        }
+                    }
+                }
+
+                #listTemplate {
+                    position: relative;
+                    max-width: 50em;
+                    box-shadow: 0 0 0 1px $toplevelcolor inset;
                     padding: 1em;
-                }
-
-                #listShow {
-                    background-color: aqua;
+                    background-color: $unlitcolor;
                     min-height: 10px;
+                    display: none;
+
+                    #genre, #rating{
+                        font-weight: lighter;
+                    }
+                    #entryButtons {
+                        position: absolute;
+                        top: 2em;
+                        right: 2em;
+                    }
                 }
             }
-        }    
-    }
-}
+        }
 
-footer{
-    display: flex;
-    height: 3em;
-    background-color: cadetblue;
-    justify-content: end;
-    padding-right: 1em;
+        footer {
+            display: flex;
+            height: 3em;
+            background-color: $toplevelcolor;
+            justify-content: end;
+            padding-right: 1em;
+        }
+    }
+
+    @media (max-width: 700px) {
+        body {
+            #content {
+                header {
+                    padding-left: 3em;
+                    h1 {
+                        font-size: 20px;
+                    }
+                }
+
+                .mainMenu {
+                    float: none;
+                    width: 100%;
+                    flex-direction: row;
+
+                    .menuButton {
+                        h3 {
+                            font-size: 17px;
+                        }
+                        img {
+                            width: 8em;
+                            height: 7em;
+                        }
+                    }
+                }
+
+                .innerContent {
+                    margin-left: 0em;
+                }
+            }
+        }
+    }
 }

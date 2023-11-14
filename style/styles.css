@@ -3,92 +3,145 @@ html {
 }
 html body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  max-width: 100%;
   height: 100%;
+  max-width: 85rem;
   background-color: rgb(12, 12, 12);
   color: aliceblue;
   font-size: 16px;
 }
 html body #content {
-  width: 100%;
   background-color: rgb(40, 43, 38);
   overflow: hidden;
 }
 html body #content header {
   display: flex;
-  justify-content: center;
-  height: 10%;
-  color: aliceblue;
+  padding-left: 7em;
   background-color: cadetblue;
 }
+html body #content header #homeButton {
+  cursor: pointer;
+  -webkit-text-decoration: solid underline 0px;
+          text-decoration: solid underline 0px;
+  transition: all 300ms ease-in-out;
+}
+html body #content header #homeButton:hover {
+  color: #fff;
+  -webkit-text-decoration: solid underline 5px;
+          text-decoration: solid underline 5px;
+}
 html body #content .mainMenu {
+  width: -moz-fit-content;
+  width: fit-content; /* Set the width of the sidebar */
   display: flex;
   align-content: flex-start;
   align-items: center;
   flex-direction: column;
-  width: -moz-fit-content;
-  width: fit-content; /* Set the width of the sidebar */
   float: left; /* Stay on top */
   top: 0; /* Stay at the top */
   left: 0;
-  overflow: hidden; /* Disable horizontal scroll */
   background-color: darkslategrey;
+  overflow: hidden; /* Disable horizontal scroll */
 }
 html body #content .mainMenu .menuButton {
   cursor: pointer;
+  max-height: -moz-fit-content;
+  max-height: fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
   position: relative;
-  max-width: 13em;
-  min-height: 13em;
-  color: aliceblue;
   background-color: darkslategrey;
+  box-shadow: 0 0 0 1px cadetblue inset;
   transition: all 300ms ease-in-out;
 }
 html body #content .mainMenu .menuButton .buttonText {
   position: absolute;
   text-align: center;
   width: 100%;
+  -webkit-text-decoration: solid underline 1px;
+          text-decoration: solid underline 1px;
 }
 html body #content .mainMenu .menuButton:hover {
   color: #fff;
   background-color: cadetblue;
-  box-shadow: 0 0 0 1px #fff inset;
 }
 html body #content .mainMenu .menuButton Img {
-  width: 13em;
   height: 11em;
+  width: 13em;
   padding-top: 2em;
   opacity: 0.3;
   mix-blend-mode: multiply;
 }
 html body #content .innerContent {
   min-height: 100%;
+  max-width: 50em;
   margin-left: 13em;
-  padding: 3em;
+  padding: 1em;
   text-align: left;
 }
-html body #content .innerContent select, html body #content .innerContent input, html body #content .innerContent #showDescription {
-  font-size: inherit;
+html body #content .innerContent #addShow form th,
+html body #content .innerContent #addShow form td {
+  padding-bottom: 1em;
 }
-html body #content .innerContent #showName {
-  width: 30em;
+html body #content .innerContent #addShow form select,
+html body #content .innerContent #addShow form input,
+html body #content .innerContent #addShow form #showDescription {
+  font-size: 16px;
 }
-html body #content .innerContent #showDescription {
-  width: 40em;
+html body #content .innerContent #addShow form #showDescription {
+  width: 100%;
   height: 10em;
+  box-sizing: border-box;
 }
-html body #content .innerContent .searchResult {
-  box-shadow: 0 0 0 1px #fff inset;
+html body #content .innerContent #searchShow div {
+  padding-bottom: 2em;
+}
+html body #content .innerContent #searchShow div input {
+  font-size: 16px;
+}
+html body #content .innerContent #listTemplate {
+  position: relative;
+  max-width: 50em;
+  box-shadow: 0 0 0 1px cadetblue inset;
   padding: 1em;
-}
-html body #content .innerContent #listShow {
-  background-color: aqua;
+  background-color: darkslategrey;
   min-height: 10px;
+  display: none;
 }
-
-footer {
+html body #content .innerContent #listTemplate #genre, html body #content .innerContent #listTemplate #rating {
+  font-weight: lighter;
+}
+html body #content .innerContent #listTemplate #entryButtons {
+  position: absolute;
+  top: 2em;
+  right: 2em;
+}
+html body footer {
   display: flex;
   height: 3em;
   background-color: cadetblue;
   justify-content: end;
   padding-right: 1em;
+}
+@media (max-width: 700px) {
+  html body #content header {
+    padding-left: 3em;
+  }
+  html body #content header h1 {
+    font-size: 20px;
+  }
+  html body #content .mainMenu {
+    float: none;
+    width: 100%;
+    flex-direction: row;
+  }
+  html body #content .mainMenu .menuButton h3 {
+    font-size: 17px;
+  }
+  html body #content .mainMenu .menuButton img {
+    width: 8em;
+    height: 7em;
+  }
+  html body #content .innerContent {
+    margin-left: 0em;
+  }
 }/*# sourceMappingURL=styles.css.map */
