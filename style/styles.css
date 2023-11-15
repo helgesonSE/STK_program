@@ -6,64 +6,55 @@ html {
 }
 html body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  height: 100%;
-  background-color: rgb(12, 12, 12);
-  color: aliceblue;
+  background-color: rgb(255, 255, 255);
+  color: rgb(25, 26, 27);
   font-size: 16px;
 }
 html body #content {
-  background-color: rgb(40, 43, 38);
-  height: -moz-fit-content;
-  height: fit-content;
+  background-color: rgb(231, 231, 231);
   overflow: hidden;
 }
 html body #content header {
   display: flex;
   padding-left: 7em;
-  background-color: cadetblue;
+  background-color: rgb(144, 210, 212);
 }
 html body #content header #homeButton {
   cursor: pointer;
-  -webkit-text-decoration: solid underline 0px;
-          text-decoration: solid underline 0px;
+  color: #fff;
+  -webkit-text-decoration: solid underline 1px;
+          text-decoration: solid underline 1px;
   transition: all 300ms ease-in-out;
 }
 html body #content header #homeButton:hover, html body #content header #homeButton:focus {
-  color: #fff;
   -webkit-text-decoration: solid underline 5px;
           text-decoration: solid underline 5px;
 }
 html body #content .mainMenu {
-  width: -moz-fit-content;
-  width: fit-content;
   float: left;
-  top: 0;
-  left: 0;
-  background-color: darkslategrey;
+  background-color: cadetblue;
 }
 html body #content .mainMenu .menuButton {
   cursor: pointer;
-  max-height: -moz-fit-content;
-  max-height: fit-content;
-  max-width: -moz-fit-content;
-  max-width: fit-content;
   position: relative;
-  background-color: darkslategrey;
-  box-shadow: 0 0 0 1px cadetblue inset;
+  background-color: cadetblue;
+  box-shadow: 0 0 0 1px rgb(144, 210, 212) inset;
   transition: all 300ms ease-in-out;
 }
 html body #content .mainMenu .menuButton .buttonText {
+  z-index: 1;
   position: absolute;
   text-align: center;
+  color: #fff;
   width: 100%;
   -webkit-text-decoration: solid underline 1px;
           text-decoration: solid underline 1px;
 }
 html body #content .mainMenu .menuButton:hover, html body #content .mainMenu .menuButton:focus {
-  color: #fff;
-  background-color: cadetblue;
+  background-color: rgb(144, 210, 212);
 }
 html body #content .mainMenu .menuButton Img {
+  z-index: 0;
   height: 11em;
   width: 13em;
   padding-top: 2em;
@@ -71,16 +62,11 @@ html body #content .mainMenu .menuButton Img {
   mix-blend-mode: multiply;
 }
 html body #content .innerContent {
-  min-height: 100%;
   margin-left: 13em;
   padding: 1em;
-  text-align: left;
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-html body #content .innerContent .innerWindow {
-  max-width: 60em;
 }
 html body #content .innerContent #addShow form select, html body #content .innerContent #addShow form input, html body #content .innerContent #addShow form #showDescription {
   font-size: 16px;
@@ -101,10 +87,9 @@ html body #content .innerContent #searchShow #noResultDisplay {
 html body #content .innerContent #listTemplate {
   position: relative;
   max-width: 50em;
-  min-width: 90%;
-  box-shadow: 0 0 0 1px cadetblue inset;
   padding: 1em;
-  background-color: darkslategrey;
+  margin-bottom: 0.5em;
+  background-color: rgb(144, 210, 212);
   display: none;
 }
 html body #content .innerContent #listTemplate #genre, html body #content .innerContent #listTemplate #rating {
@@ -115,11 +100,14 @@ html body #content .innerContent #listTemplate #entryButtons {
   top: 2em;
   right: 2em;
 }
+html body #content .innerContent #listTemplate #entryButtons button {
+  font-size: 16px;
+}
 html body footer {
   display: flex;
   height: -moz-fit-content;
   height: fit-content;
-  background-color: cadetblue;
+  background-color: rgb(144, 210, 212);
   justify-content: end;
   padding-right: 1em;
 }

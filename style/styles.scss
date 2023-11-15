@@ -1,9 +1,10 @@
 // Vi definerar några återkommande färger och textstorlekar
-$backdropcolor: rgb(12, 12, 12);
-$bgcolor: rgb(40, 43, 38);
-$toplevelcolor: cadetblue;
-$midcolor: darkslategrey;
-$textcolor: aliceblue;
+$backdropcolor: rgb(255, 255, 255);
+$bgcolor: rgb(231, 231, 231);
+$buttoncolor: #fff;
+$toplevelcolor: rgb(144, 210, 212);
+$midcolor: cadetblue;
+$textcolor: rgb(25, 26, 27);
 $fontsize: 16px;
 
 html {
@@ -11,14 +12,12 @@ html {
 
     body {
         font-family: Verdana, Geneva, Tahoma, sans-serif;
-        height: 100%;
         background-color: $backdropcolor;
         color: $textcolor;
         font-size: $fontsize;
 
         #content {
             background-color: $bgcolor;
-            height: fit-content;
             overflow: hidden; //Anpassar rutan mot meny till vänster. 
 
             header {
@@ -28,44 +27,41 @@ html {
 
                 #homeButton {   //Animation vid mouse-over & focus (för tab).
                     cursor: pointer;
-                    text-decoration: solid underline 0px;
+                    color: $buttoncolor;
+                    text-decoration: solid underline 1px;
                     transition: all 300ms ease-in-out;
                     &:hover, &:focus {
-                        color: #fff;
                         text-decoration: solid underline 5px;
                     }
                 }
             }
 
             .mainMenu { 
-                width: fit-content;
                 float: left; //Frikopplar menyn så att den inte är i vägen för innerContent.
-                top: 0; 
-                left: 0;
                 background-color: $midcolor;
 
                 .menuButton {
                     cursor: pointer;
-                    max-height: fit-content;
-                    max-width: fit-content;
                     position: relative;
                     background-color: $midcolor;
                     box-shadow: 0 0 0 1px $toplevelcolor inset;
 
                     .buttonText {
+                        z-index: 1; //Placerar texten över bakgrundsbilden.
                         position: absolute;
                         text-align: center;
+                        color: $buttoncolor;
                         width: 100%;
                         text-decoration: solid underline 1px;
                     }
                     //Animation vid mouse-over och focus (för tab).
                     transition: all 300ms ease-in-out;
                     &:hover, &:focus {
-                        color: #fff;
                         background-color: $toplevelcolor;
                     }
 
                     Img {
+                        z-index: 0; //Se ovan.
                         height: 11em;
                         width: 13em;    //Här sätts den faktiska bredden på menyn.
                         padding-top: 2em;
@@ -76,17 +72,11 @@ html {
             }
 
             .innerContent {
-                min-height: 100%;
                 margin-left: 13em;  //Ger plats åt menyn.
                 padding: 1em;
-                text-align: left;
                 display: flex;
                 flex-direction: column;
                 align-items: center;    //Centrerar innehållet.
-
-                .innerWindow {
-                    max-width: 60em;
-                }
 
                 #addShow {
                     form {
@@ -102,8 +92,8 @@ html {
 
                 #searchShow {
                     padding-bottom: 2em;
-                        input {
-                            font-size: $fontsize;
+                    input {
+                        font-size: $fontsize;
                     }
                     #noResultDisplay {
                         display: none;
@@ -113,19 +103,22 @@ html {
                 #listTemplate { //Mallen för nya program
                     position: relative;
                     max-width: 50em;
-                    min-width: 90%;
-                    box-shadow: 0 0 0 1px $toplevelcolor inset;
                     padding: 1em;
-                    background-color: $midcolor;
+                    margin-bottom: 0.5em;
+                    background-color: $toplevelcolor;
                     display: none; //Vi justerar display via javascript. 
 
                     #genre, #rating{
                         font-weight: lighter;
                     }
+                    
                     #entryButtons {
                         position: absolute;
                         top: 2em;
                         right: 2em;
+                        button {
+                            font-size: $fontsize;
+                        }
                     }
                 }
             }
