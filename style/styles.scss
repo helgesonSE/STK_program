@@ -133,7 +133,7 @@ html {
 
         footer {
             display: flex;
-            height: 3em;
+            height: fit-content;
             background-color: $toplevelcolor;
             justify-content: end;
             padding-right: 1em;
@@ -173,6 +173,9 @@ html {
                 .innerContent {
                     margin-left: 0em;
                 }
+            }
+            footer {
+                font-size: small;
             }
         }
     }

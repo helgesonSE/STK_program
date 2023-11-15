@@ -117,7 +117,8 @@ html body #content .innerContent #listTemplate #entryButtons {
 }
 html body footer {
   display: flex;
-  height: 3em;
+  height: -moz-fit-content;
+  height: fit-content;
   background-color: cadetblue;
   justify-content: end;
   padding-right: 1em;
@@ -146,5 +147,8 @@ html body footer {
   }
   html body #content .innerContent {
     margin-left: 0em;
+  }
+  html body footer {
+    font-size: small;
   }
 }/*# sourceMappingURL=styles.css.map */
