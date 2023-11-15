@@ -101,11 +101,12 @@ html {
                 }
 
                 #searchShow {
-                    div {
-                        padding-bottom: 2em;
+                    padding-bottom: 2em;
                         input {
                             font-size: $fontsize;
-                        }
+                    }
+                    #noResultDisplay {
+                        display: none;
                     }
                 }
 

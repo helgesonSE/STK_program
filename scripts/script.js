@@ -84,10 +84,11 @@ function displayMatchingShows () {  //Sökfunktionen. Den körs varje tangentsla
     }
     if (foundShow) {
         document.getElementById("listShow").style.display = "block";    //För att visa resultatet kopplar vi på fönstret som visar programmen.
-        noResult.textContent = "";
+        noResult.style.display = "none";
     }
     else {
-        noResult.textContent = "No matching title found";   //Informerar användaren om att inget hittats.
+        noResult.style.display = "block";
+        //noResult.textContent = "No matching title found";   //Informerar användaren om att inget hittats.
     }
 }
 

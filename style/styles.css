@@ -89,11 +89,14 @@ html body #content .innerContent #addShow form #showDescription {
   width: 100%;
   height: 10em;
 }
-html body #content .innerContent #searchShow div {
+html body #content .innerContent #searchShow {
   padding-bottom: 2em;
 }
-html body #content .innerContent #searchShow div input {
+html body #content .innerContent #searchShow input {
   font-size: 16px;
+}
+html body #content .innerContent #searchShow #noResultDisplay {
+  display: none;
 }
 html body #content .innerContent #listTemplate {
   position: relative;

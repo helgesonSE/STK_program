@@ -22,23 +22,23 @@
                 <div class="buttonText">
                     <h3>LÄGG TILL PROGRAM</h3>
                 </div>
-                <img class="buttonImg" src="media/addProgram.gif" alt="Add Program">
+                <img class="buttonImg" src="media/addProgram.gif" alt="Lägg till program">
             </div>
             <div tabindex="0" id="searchShowButton" class="menuButton navButton">
                 <div class="buttonText">
                     <h3>SÖK PROGRAM</h3>
                 </div>
-                <img class="buttonImg" src="media/searchProgram.gif" alt="Add Program">
+                <img class="buttonImg" src="media/searchProgram.gif" alt="Sök efter program">
             </div>
             <div tabindex="0" id="listShowButton" class="menuButton navButton">
                 <div class="buttonText">
-                    <h3>PROGRAM-<br>LISTA</h3>
+                    <h3>PROGRAM-<br>ARKIV</h3>
                 </div>
-                <img class="buttonImg" src="media/programList.gif" alt="Add Program">
+                <img class="buttonImg" src="media/programList.gif" alt="Lista alla program">
             </div>
         </aside>
         <!-- Wrapper åt inre ytan på hemsidan. -->
-        <section class="innerContent">
+        <div class="innerContent">
             <!-- "innerWindow"-elementens synlighet styrs av javascript. 
                 Bara en (eller två för söksidan) visas i taget. -->
             <section id="home" class="innerWindow">
@@ -54,7 +54,7 @@
                     <table>
                         <tr>
                             <th>
-                                <label for="showName"><h4>Programtitel:</h4></label>
+                                <label for="showName">Programtitel:</label>
                             </th>
                             <th>
                                 <input type="text" id="showName" name="showName" required placeholder="Ange programmets titel...">
@@ -62,7 +62,7 @@
                         </tr>
                         <tr>
                             <th>
-                                <label for="genre"><h4>Genre:</h4></label>
+                                <label for="showGenre">Genre:</label>
                             </th>
                             <th>
                                 <select id="showGenre" name="genre">
@@ -77,7 +77,7 @@
                         </tr>
                         <tr>
                             <th>
-                                <label for="rating"><h4>Åldersgräns:</h4></label>
+                                <label for="showRating">Åldersgräns:</label>
                             </th>
                             <th>
                                 <select id="showRating" name="rating">
@@ -96,40 +96,34 @@
             <!-- Sökrutan har "noResultDisplay" för att berätta om inget hittades. -->
             <section id="searchShow" class="innerWindow">
                 <h2>Sök program</h2>
-                <div>
-                    <input type="text" id="searchShowInput" placeholder="Ange titel...">
-                    <label for="titleSearch"><p id="noResultDisplay"></p></label>
-                </div>
+                <input type="text" id="searchShowInput" placeholder="Ange titel...">
+                <h4 id="noResultDisplay">No matching title found</h4>
             </section>
             <!-- Programlistan innehåller en osynlig template. Den används för att fylla ut 
                 i programlistan med ett element för varje sparat program. -->
             <section id="listShow" class="innerWindow">
                 <h2>Program:</h2>
                 <div id="listTemplate">
+                    <h2 id="title">TITEL</h2>
                     <table>
                         <tr>
-                            <th>
-                                <h2 id="title">TITEL</h2>
-                            </th>
+                            <th>Genre:</th>
+                            <td id=genre>genre</td>
                         </tr>
                         <tr>
-                            <th><h3>Genre:</h3></th>
-                            <td><h3 id=genre></h3></td>
-                        </tr>
-                        <tr>
-                            <th><h3>Åldersgräns:</h3></th>
-                            <td><h3 id=rating></h3></td>
+                            <th>Åldersgräns:</th>
+                            <td id=rating>åldersgräns</td>
                         </tr>
                     </table>
-                    <p id="description"></p>
+                    <p id="description">beskrivning</p>
                     <div id="entryButtons">
-                        <button id="deleteButton"><h4>Ta bort</h4></button>
+                        <button id="deleteButton">Ta bort</button>
                     </div>
                 </div>
             </section>
-        </section>
+        </div>
     </div>
-    <footer><h4>STK. Senast uppdaterad 2023-11-15</h4></footer>    
+    <footer><h4>Frågor: <a href="mailto:helgezone@gmail.com">webb@stk.se</a> //STK. Senast uppdaterad 2023-11-15</h4></footer>    
     <script src="/scripts/script.js"></script>
 </body>
 </html>
