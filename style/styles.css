@@ -1,16 +1,20 @@
+@charset "UTF-8";
 html {
   height: 100%;
+  /*Här sker anpassningar för mindre fönster. Vrider på menyknapparna och 
+  justerar storlekar på text och annat*/
 }
 html body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   height: 100%;
-  max-width: 85rem;
   background-color: rgb(12, 12, 12);
   color: aliceblue;
   font-size: 16px;
 }
 html body #content {
   background-color: rgb(40, 43, 38);
+  height: -moz-fit-content;
+  height: fit-content;
   overflow: hidden;
 }
 html body #content header {
@@ -24,23 +28,18 @@ html body #content header #homeButton {
           text-decoration: solid underline 0px;
   transition: all 300ms ease-in-out;
 }
-html body #content header #homeButton:hover {
+html body #content header #homeButton:hover, html body #content header #homeButton:focus {
   color: #fff;
   -webkit-text-decoration: solid underline 5px;
           text-decoration: solid underline 5px;
 }
 html body #content .mainMenu {
   width: -moz-fit-content;
-  width: fit-content; /* Set the width of the sidebar */
-  display: flex;
-  align-content: flex-start;
-  align-items: center;
-  flex-direction: column;
-  float: left; /* Stay on top */
-  top: 0; /* Stay at the top */
+  width: fit-content;
+  float: left;
+  top: 0;
   left: 0;
   background-color: darkslategrey;
-  overflow: hidden; /* Disable horizontal scroll */
 }
 html body #content .mainMenu .menuButton {
   cursor: pointer;
@@ -60,7 +59,7 @@ html body #content .mainMenu .menuButton .buttonText {
   -webkit-text-decoration: solid underline 1px;
           text-decoration: solid underline 1px;
 }
-html body #content .mainMenu .menuButton:hover {
+html body #content .mainMenu .menuButton:hover, html body #content .mainMenu .menuButton:focus {
   color: #fff;
   background-color: cadetblue;
 }
@@ -68,29 +67,27 @@ html body #content .mainMenu .menuButton Img {
   height: 11em;
   width: 13em;
   padding-top: 2em;
-  opacity: 0.3;
+  opacity: 0.35;
   mix-blend-mode: multiply;
 }
 html body #content .innerContent {
   min-height: 100%;
-  max-width: 50em;
   margin-left: 13em;
   padding: 1em;
   text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-html body #content .innerContent #addShow form th,
-html body #content .innerContent #addShow form td {
-  padding-bottom: 1em;
+html body #content .innerContent .innerWindow {
+  max-width: 60em;
 }
-html body #content .innerContent #addShow form select,
-html body #content .innerContent #addShow form input,
-html body #content .innerContent #addShow form #showDescription {
+html body #content .innerContent #addShow form select, html body #content .innerContent #addShow form input, html body #content .innerContent #addShow form #showDescription {
   font-size: 16px;
 }
 html body #content .innerContent #addShow form #showDescription {
   width: 100%;
   height: 10em;
-  box-sizing: border-box;
 }
 html body #content .innerContent #searchShow div {
   padding-bottom: 2em;
@@ -101,10 +98,10 @@ html body #content .innerContent #searchShow div input {
 html body #content .innerContent #listTemplate {
   position: relative;
   max-width: 50em;
+  min-width: 90%;
   box-shadow: 0 0 0 1px cadetblue inset;
   padding: 1em;
   background-color: darkslategrey;
-  min-height: 10px;
   display: none;
 }
 html body #content .innerContent #listTemplate #genre, html body #content .innerContent #listTemplate #rating {
@@ -132,6 +129,9 @@ html body footer {
   html body #content .mainMenu {
     float: none;
     width: 100%;
+    display: flex;
+    align-content: flex-start;
+    align-items: center;
     flex-direction: row;
   }
   html body #content .mainMenu .menuButton h3 {

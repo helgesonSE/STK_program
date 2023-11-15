@@ -1,7 +1,8 @@
+// Vi definerar några återkommande färger och textstorlekar
 $backdropcolor: rgb(12, 12, 12);
 $bgcolor: rgb(40, 43, 38);
 $toplevelcolor: cadetblue;
-$unlitcolor: darkslategrey;
+$midcolor: darkslategrey;
 $textcolor: aliceblue;
 $fontsize: 16px;
 
@@ -11,49 +12,44 @@ html {
     body {
         font-family: Verdana, Geneva, Tahoma, sans-serif;
         height: 100%;
-        max-width: 85rem;
         background-color: $backdropcolor;
         color: $textcolor;
         font-size: $fontsize;
 
         #content {
             background-color: $bgcolor;
-            overflow: hidden;
+            height: fit-content;
+            overflow: hidden; //Anpassar rutan mot meny till vänster. 
 
             header {
                 display: flex;
                 padding-left: 7em;
                 background-color: $toplevelcolor;
 
-                #homeButton {
+                #homeButton {   //Animation vid mouse-over & focus (för tab).
                     cursor: pointer;
                     text-decoration: solid underline 0px;
                     transition: all 300ms ease-in-out;
-                    &:hover {
+                    &:hover, &:focus {
                         color: #fff;
                         text-decoration: solid underline 5px;
                     }
                 }
             }
 
-            .mainMenu {
-                width: fit-content; /* Set the width of the sidebar */
-                display: flex;
-                align-content: flex-start;
-                align-items: center;
-                flex-direction: column;
-                float: left; /* Stay on top */
-                top: 0; /* Stay at the top */
+            .mainMenu { 
+                width: fit-content;
+                float: left; //Frikopplar menyn så att den inte är i vägen för innerContent.
+                top: 0; 
                 left: 0;
-                background-color: $unlitcolor;
-                overflow: hidden; /* Disable horizontal scroll */
+                background-color: $midcolor;
 
                 .menuButton {
                     cursor: pointer;
                     max-height: fit-content;
                     max-width: fit-content;
                     position: relative;
-                    background-color: $unlitcolor;
+                    background-color: $midcolor;
                     box-shadow: 0 0 0 1px $toplevelcolor inset;
 
                     .buttonText {
@@ -62,18 +58,18 @@ html {
                         width: 100%;
                         text-decoration: solid underline 1px;
                     }
-
+                    //Animation vid mouse-over och focus (för tab).
                     transition: all 300ms ease-in-out;
-                    &:hover {
+                    &:hover, &:focus {
                         color: #fff;
                         background-color: $toplevelcolor;
                     }
 
                     Img {
                         height: 11em;
-                        width: 13em;
+                        width: 13em;    //Här sätts den faktiska bredden på menyn.
                         padding-top: 2em;
-                        opacity: 0.3;
+                        opacity: 0.35;
                         mix-blend-mode: multiply;
                     }
                 }
@@ -81,26 +77,25 @@ html {
 
             .innerContent {
                 min-height: 100%;
-                max-width: 50em;
-                margin-left: 13em;
+                margin-left: 13em;  //Ger plats åt menyn.
                 padding: 1em;
                 text-align: left;
+                display: flex;
+                flex-direction: column;
+                align-items: center;    //Centrerar innehållet.
+
+                .innerWindow {
+                    max-width: 60em;
+                }
 
                 #addShow {
                     form {
-                        th,
-                        td {
-                            padding-bottom: 1em;
-                        }
-                        select,
-                        input,
-                        #showDescription {
+                        select, input, #showDescription {
                             font-size: $fontsize;
                         }
                         #showDescription {
                             width: 100%;
                             height: 10em;
-                            box-sizing: border-box;
                         }
                     }
                 }
@@ -114,14 +109,14 @@ html {
                     }
                 }
 
-                #listTemplate {
+                #listTemplate { //Mallen för nya program
                     position: relative;
                     max-width: 50em;
+                    min-width: 90%;
                     box-shadow: 0 0 0 1px $toplevelcolor inset;
                     padding: 1em;
-                    background-color: $unlitcolor;
-                    min-height: 10px;
-                    display: none;
+                    background-color: $midcolor;
+                    display: none; //Vi justerar display via javascript. 
 
                     #genre, #rating{
                         font-weight: lighter;
@@ -143,7 +138,8 @@ html {
             padding-right: 1em;
         }
     }
-
+    /*Här sker anpassningar för mindre fönster. Vrider på menyknapparna och 
+    justerar storlekar på text och annat*/
     @media (max-width: 700px) {
         body {
             #content {
@@ -157,6 +153,9 @@ html {
                 .mainMenu {
                     float: none;
                     width: 100%;
+                    display: flex;
+                    align-content: flex-start;
+                    align-items: center;
                     flex-direction: row;
 
                     .menuButton {

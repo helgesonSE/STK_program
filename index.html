@@ -7,45 +7,54 @@
     <link rel="stylesheet" href="style/styles.css">
 </head>
 <body>
+    <!-- Wrapper åt sidan. -->
     <div id="content">
         <header>
-            <div id="homeButton">
+            <!-- Hemknapp, går till startvyn. Nåbar via tab. -->
+            <div tabindex="0" id="homeButton" class="navButton">
                 <h1>STK PROGRAMHANTERARE</h1>
             </div>
         </header>
         <aside class="mainMenu">
-            <div id="addShowButton" class="menuButton">
+            <!-- Menyknapparna. På stora skärmar till vänster, alltså "aside". Tabindex
+            gör knapparna nåbara via tab. Två klasser, den ena för js, den andra för css. -->
+            <div tabindex="0" id="addShowButton" class="menuButton navButton">
                 <div class="buttonText">
                     <h3>LÄGG TILL PROGRAM</h3>
                 </div>
                 <img class="buttonImg" src="media/addProgram.gif" alt="Add Program">
             </div>
-            <div id="searchShowButton" class="menuButton">
+            <div tabindex="0" id="searchShowButton" class="menuButton navButton">
                 <div class="buttonText">
                     <h3>SÖK PROGRAM</h3>
                 </div>
                 <img class="buttonImg" src="media/searchProgram.gif" alt="Add Program">
             </div>
-            <div id="listShowButton" class="menuButton">
+            <div tabindex="0" id="listShowButton" class="menuButton navButton">
                 <div class="buttonText">
                     <h3>PROGRAM-<br>LISTA</h3>
                 </div>
                 <img class="buttonImg" src="media/programList.gif" alt="Add Program">
             </div>
         </aside>
+        <!-- Wrapper åt inre ytan på hemsidan. -->
         <section class="innerContent">
+            <!-- "innerWindow"-elementens synlighet styrs av javascript. 
+                Bara en (eller två för söksidan) visas i taget. -->
             <section id="home" class="innerWindow">
-                <h3>Välkommen</h3>
+                <h2>Välkommen</h2>
                 <p>Till Statliga Televisionskanalens nya verktyg för att hantera program. 
                     Använd knapparna till vänster för att lägga till nya program till arkivet,
                     söka i arkivet, eller se arkivet i sin helhet.</p>
             </section>
+            <!-- Formulär för att mata in nya program -->
             <section id="addShow" class="innerWindow">
-                <form>
-                    <table id="addShowTable">
+                <h2>Lägg till program</h2>
+                <form id="addShowForm">
+                    <table>
                         <tr>
                             <th>
-                                <label for="showName" name="labelForTextBox">Programtitel:</label>
+                                <label for="showName"><h4>Programtitel:</h4></label>
                             </th>
                             <th>
                                 <input type="text" id="showName" name="showName" required placeholder="Ange programmets titel...">
@@ -53,7 +62,7 @@
                         </tr>
                         <tr>
                             <th>
-                                <label for="genre" name="labelForGenre">Genre:</label>
+                                <label for="genre"><h4>Genre:</h4></label>
                             </th>
                             <th>
                                 <select id="showGenre" name="genre">
@@ -68,10 +77,10 @@
                         </tr>
                         <tr>
                             <th>
-                                <label for="rating" name="labelForRating">Åldersgräns:</label>
+                                <label for="rating"><h4>Åldersgräns:</h4></label>
                             </th>
                             <th>
-                                <select id="showRating" name="åldersgräns">
+                                <select id="showRating" name="rating">
                                     <option value="Barntillåten">Barntillåten</option>
                                     <option value="7 år+">7 år</option>
                                     <option value="11 år+">11 år+</option>
@@ -80,17 +89,22 @@
                             </th>
                         </tr>
                     </table>
-                    <textarea id="showDescription" name="description" required placeholder="Ange beskrivning..."></textarea><br>
-                    <input class="button" id="submitShow" type="submit" value="Lägg till program">
+                    <textarea id="showDescription" name="description" placeholder="Ange beskrivning..."></textarea><br>
+                    <input class="button" id="submitShow" type="submit" name="submit" value="Lägg till program">
                 </form>
             </section>
+            <!-- Sökrutan har "noResultDisplay" för att berätta om inget hittades. -->
             <section id="searchShow" class="innerWindow">
+                <h2>Sök program</h2>
                 <div>
-                    <label for="searchName" name="labelForTextBox"><h3>Sök titel:</h3></label>
-                    <input type="text" id="searchShowInput" name="showName" placeholder="Ange titel...">
+                    <input type="text" id="searchShowInput" placeholder="Ange titel...">
+                    <label for="titleSearch"><p id="noResultDisplay"></p></label>
                 </div>
             </section>
+            <!-- Programlistan innehåller en osynlig template. Den används för att fylla ut 
+                i programlistan med ett element för varje sparat program. -->
             <section id="listShow" class="innerWindow">
+                <h2>Program:</h2>
                 <div id="listTemplate">
                     <table>
                         <tr>
@@ -115,7 +129,7 @@
             </section>
         </section>
     </div>
-    <footer><h4>STK. Senast uppdaterad 2023-11-14</h4></footer>    
+    <footer><h4>STK. Senast uppdaterad 2023-11-15</h4></footer>    
     <script src="/scripts/script.js"></script>
 </body>
 </html>
